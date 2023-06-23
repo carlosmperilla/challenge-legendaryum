@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  node-app:
+    build: .
+    environment:
+      - REDIS_URL=redis://redis-server:6379
+    depends_on:
+      - redis-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/dist
+  redis-server: 
+    image: redis
