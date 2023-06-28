@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
-    "serve": "pm2 start dist/server/index.js --watch --name challenge --no-daemon",
+    "serve": "tsc -w --fallbackPolling dynamicpriority --watchDirectory dynamicprioritypolling --watchFile dynamicprioritypolling >> logs/ts-logs.log & pm2 start dist/server/index.js --watch --name challenge --no-daemon",
     "start": "nodemon ./server/index.ts"
   },
   "author": "Yo",
